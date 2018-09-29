@@ -12,46 +12,75 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout linearLayoutRoot;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        createLinnearLayoutView();
+
+        initLayoutLinearLayout();
+
+
+        //setContentView linearLayout run later
         setContentView(linearLayoutRoot);
+
     }
 
-    public void createLinnearLayoutView() {
+    public void initLayoutLinearLayout(){
+        //LinearLayout root
         linearLayoutRoot = new LinearLayout(this);
-        linearLayoutRoot.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
         linearLayoutRoot.setOrientation(LinearLayout.VERTICAL);
+        linearLayoutRoot.setLayoutParams(layoutParams);
 
-        LinearLayout linearLayoutSub = new LinearLayout(this);
-        linearLayoutSub.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        linearLayoutSub.setOrientation(LinearLayout.HORIZONTAL);
+        //LinearLayout seccon
 
-        ImageView imageView = new ImageView(this);
-        imageView.setImageResource(R.mipmap.ic_launcher);
+        LinearLayout linearLayoutSecond = new LinearLayout(this);
+        LinearLayout.LayoutParams layoutParamsSecond = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        linearLayoutSecond.setOrientation(LinearLayout.HORIZONTAL);
+        linearLayoutSecond.setLayoutParams(layoutParamsSecond);
+
+        // Create ImageView
+
+        ImageView imgView = new ImageView(this);
+        imgView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+        imgView.setImageResource(R.mipmap.ic_launcher);
+
+        //Create TextView
 
         TextView textView = new TextView(this);
-        textView.setText("Xin Chào! Tôi là ngôn ngữ lập trình Android");
-        LinearLayout.LayoutParams lay = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        lay.gravity = Gravity.CENTER;
-        textView.setLayoutParams(lay);
+        LinearLayout.LayoutParams layoutParamsTextView =  new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParamsTextView.gravity = Gravity.CENTER;
+        layoutParamsTextView.setMargins(20,0,0,0);
+        textView.setLayoutParams(layoutParamsTextView);
+        textView.setText("Hello guy i am khanh developer");
 
-        linearLayoutSub.addView(imageView);
-        linearLayoutSub.addView(textView);
+        //add linearLayoutSecond
+
+        linearLayoutSecond.addView(imgView);
+        linearLayoutSecond.addView(textView);
+
+
+        //Create Button
 
         Button btnClick = new Button(this);
-        btnClick.setText("Click để xem");
-        btnClick.setLayoutParams(lay);
+        LinearLayout.LayoutParams layoutParamsButton1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParamsButton1.gravity = Gravity.CENTER;
+        btnClick.setPadding(20,0,0,0);
+        btnClick.setText("Click me now!");
+        btnClick.setLayoutParams(layoutParamsButton1);
 
-        Button btnHihi = new Button(this);
-        btnHihi.setText("Hihi Đồ Ngốc");
-        btnHihi.setLayoutParams(lay);
+        //Create Button 2
 
-        linearLayoutRoot.addView(linearLayoutSub);
+        Button btnClick2 = new Button(this);
+        LinearLayout.LayoutParams layoutParamsButton2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParamsButton2.gravity = Gravity.CENTER;
+        btnClick2.setPadding(20,0,0,0);
+        btnClick2.setText("Click me now part 2!");
+        btnClick2.setLayoutParams(layoutParamsButton2);
+
+        // Add button images textview with LinearLayoutRoot;
+
+        linearLayoutRoot.addView(linearLayoutSecond);
         linearLayoutRoot.addView(btnClick);
-        linearLayoutRoot.addView(btnHihi);
-
+        linearLayoutRoot.addView(btnClick2);
     }
 }

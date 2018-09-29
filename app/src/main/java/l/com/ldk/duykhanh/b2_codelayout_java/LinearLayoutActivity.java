@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class LinearLayoutActivity extends AppCompatActivity {
 
     private LinearLayout linearLayoutRoot;
     @Override

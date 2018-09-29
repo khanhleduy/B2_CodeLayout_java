@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">B2_CodeLayout_java</string>
+<string name="slogan">Are you ready</string>
+<string name="slogan2">Click me</string>
+<string name="slogan3"> Follow me</string>
 </resources>
